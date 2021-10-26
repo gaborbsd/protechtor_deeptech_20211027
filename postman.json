@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "c27f044f-6192-4443-ba25-b5fc7aae217c",
+		"name": "protechtor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Simple search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts?keyword=Cozy",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "Cozy"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simple search paging",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts?keyword=ipsum&pageSize=2&pageNumber=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "ipsum"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "pageNumber",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Long posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts/long",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"long"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Recent posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts/recent",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts",
+						"recent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Advanced search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts?olderThan=2020-08-01T10:00:00.00&titleKeyword=birthday&contentKeyword=ipsum&author=jack&activeAuthor=true",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "olderThan",
+							"value": "2020-08-01T10:00:00.00"
+						},
+						{
+							"key": "titleKeyword",
+							"value": "birthday"
+						},
+						{
+							"key": "contentKeyword",
+							"value": "ipsum"
+						},
+						{
+							"key": "author",
+							"value": "jack"
+						},
+						{
+							"key": "activeAuthor",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Advanced search paging",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/posts?author=jack&pageSize=2&pageNumber=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					],
+					"query": [
+						{
+							"key": "author",
+							"value": "jack"
+						},
+						{
+							"key": "pageSize",
+							"value": "2"
+						},
+						{
+							"key": "pageNumber",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create post - invalid",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Some nice Spring Data examples at my job\",\r\n    \"content\": \"Let's check how we can create some custom query methods\",\r\n    \"authorEmail\": \"jackexample.com\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create post - successful",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Some nice Spring Data examples\",\r\n    \"content\": \"Let's check how we can create some custom query methods\",\r\n    \"authorEmail\": \"jack@example.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get file - first query",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/api/files/meme.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"files",
+						"meme.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get file - cached",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "If-None-Match",
+						"value": "2501773693",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/files/meme.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"files",
+						"meme.jpg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get file - modified",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "If-None-Match",
+						"value": "32314332",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/files/meme.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"files",
+						"meme.jpg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
